@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body>div {
+            width: 30%;
+            height: auto;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 30px;
+            color: teal;
+        }
+
+        .all {
+            width: 80%;
+            height: auto;
+            margin: auto;
+            margin-bottom: 25px;
+            margin-top: 50px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 0px 0px 0.3px;
+            padding: 10px 20px 10px 20px;
+
+
+        }
+
+        #Box {
+            width: 90%;
+            height: auto;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+
+        #Box>div {
+            text-align: center;
+            display: flex;
+        }
+
+        #display {
+            width: 95%;
+            height: 50px;
+            margin: 30px 0px 20px 0px;
+            border: 0;
+            border-radius: 10px;
+            box-shadow: rgba(12, 12, 12, 0.35) 0px 5px 15px;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+        }
+
+        h3 {
+            width: 30px;
+            height: 30px;
+            padding: 15px 20px 15px 20px;
+            border-radius: 10px;
+            margin: auto;
+            margin-bottom: 13px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        #Box>div>h3:nth-child(4) {
+            background-color: black;
+            color: white;
+        }
+
+        #Box>div>h3:last-child {
+            background-color: black;
+            color: white;
+        }
+
+        .red {
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+
+        /* I got this by mistake  */
+        .red:nth-child(1) {
+            background-color: rgb(223, 39, 39);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Masai calculator</h1>
+        <div>
+            <div class="all">
+                <div id="Box">
+                    <div id="display"></div>
+                    <div>
+                        <h3>
+                            1
+                        </h3>
+                        <h3>
+                            2
+                        </h3>
+                        <h3>
+                            3
+                        </h3>
+                        <h3>
+                            +
+                        </h3>
+                    </div>
+                    <div>
+                        <h3>
+                            4
+                        </h3>
+                        <h3>
+                            5
+                        </h3>
+                        <h3>
+                            6
+                        </h3>
+                        <h3>
+                            -
+                        </h3>
+                    </div>
+                    <div>
+                        <h3>
+                            7
+                        </h3>
+                        <h3>
+                            8
+                        </h3>
+                        <h3>
+                            9
+                        </h3>
+                        <h3>
+                            *
+                        </h3>
+                    </div>
+                    <div>
+                        <h3 class="red">
+                            C
+                        </h3>
+                        <h3>
+                            0
+                        </h3>
+                        <h3 class="red">
+                            =
+                        </h3>
+                        <h3>
+                            /
+                        </h3>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var keys = document.querySelectorAll("h3");
+    var bag = "";
+    for (var i = 0; i < keys.length; i++) {
+        keys[i].addEventListener("click", calculator);
+    }
+    function calculator() {
+        var target = (event.target.innerText);
+        if (target === "C") {
+            bag = "";
+            document.querySelector("#display").innerText = "";
+        } else if (target == "=") {
+            document.querySelector("#display").innerText = eval(bag);
+        }
+        else {
+            bag += target;
+            console.log(bag);
+            document.querySelector("#display").innerText = bag;
+        }
+    }
+
+
+</script>
